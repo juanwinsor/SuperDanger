@@ -1,0 +1,21 @@
+Small tutorial on how to get a simple "Sprites And Bones" animation working in a Unity game:
+
+http://forum.unity3d.com/threads/219915-Release-Free-Unity-Sprites-And-Bones-2D-skeleton-animation
+
+The steps:
+
+1. get an image ( in my case a bird), import it, set the Sprite Mode to multiple and split the image in 3 sprites ( head, body and legs) using the Unity Sprite Editor - or create a sprite package if in Unity Pro.
+
+2. create a skeleton as in video tutorial_1 on the first page
+
+3. attach the sprite images to the bones as in video tutorial_2
+
+4. in the Unity Animation window create some animations by moving the skeleton bones ( I've created an idle animation used when the bird is doing nothing, a walk for when you press "left/right" and a feed animation for when you press "space")
+
+5. in the Animator Unity window link the 3 animations the way you intend them to work ( I linked "idle" to "walk" and "idle" to "feed", as I didn't wanted to have the bird feeding while walking )
+
+6. create some Parameters (also in Animator window), then set the correct condition for each link between animations ( I wanted to get from "idle anim" to "walk anim" when Parameter "idle" is false, so I've set this condition on the link, also we get from "walk" to "idle" when when Param. "idle" is true, same thing goes for idle->feed anims but with feed param set true or false.)
+
+7.create a script to set the animation parameters depending on the user input and attach it to the main skeleton - script.js - - when you press left/right the idle parameter from Animator is set to false and so the Animator will switch animations; same for feed when pressing space.
+
+8. Happy Sprites & Bones animating!
